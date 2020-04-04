@@ -4,6 +4,7 @@ p    {color: red;}
 table {
   margin:1em auto;
 }
+
 td {
   height:30px;
   width:30px;
@@ -22,3 +23,4 @@ tr:first-child {
 tr:nth-child(3n) td {
   border-bottom:solid ;
 }
+
