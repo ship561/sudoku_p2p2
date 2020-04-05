@@ -1,26 +1,95 @@
+
 body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
-table {
-  margin:1em auto;
+
+h1 {
+  position    : relative;
+  display     : block;
+  float       : center;
+
+  width       : 100%;
+  margin      : auto;
+
+  font-size   : 40px;
+  font-weight : bold;
+  text-align  : center;
 }
 
-td {
-  height:30px;
-  width:30px;
-  border:1px solid;
-  text-align:center;
+.container {
+  position : relative;
+
+  width    : 530px;
+  margin   : 0 auto;
 }
-td:first-child {
-  border-left:solid;
-}
-td:nth-child(3n) {
-  border-right:solid ;
-}
-tr:first-child {
-  border-top:solid;
-}
-tr:nth-child(3n) td {
-  border-bottom:solid ;
+.game-container {
+  position      : relative;
+  box-sizing    : border-box;
+
+  height        : 500px;
+  width         : 500px;
+  margin-top    : 40px;
+  padding       : 15px;
+
+  cursor        : default;
+  background    : #808080;
+  border-radius : 6px;
 }
 
+.grid-container {
+  position : absolute;
+  z-index  : 1;
+}
+
+.grid-row {
+  margin-bottom : 4px;
+}
+
+.grid-row:nth-child(3n+3) {
+  margin-bottom : 7px;
+}
+
+.grid-row:last-child {
+  margin-bottom : 0;
+}
+
+.grid-row:after {
+  content : "";
+
+  display : block;
+  clear   : both;
+}
+
+.grid-cell {
+  float         : left;
+
+  height        : 48px;
+  width         : 48px;
+  margin-right  : 4px;
+  padding       : 0;
+
+  background    : rgba(238, 228, 218, 0.35);
+  border-radius : 3px;
+}
+
+.grid-cell:nth-child(3n+3) {
+  margin-right : 7px;
+}
+
+.grid-cell:last-child {
+  margin-right : 0;
+}
+
+input[type=text], input[type=number] {
+  height           : 48px;
+  width            : 48px;
+  padding          : 0;
+
+  background-color : transparent;
+  font-size        : 30px;
+  color            : white;
+  text-align       : center;
+  border           : 0;
+  outline          : none;
+
+  font-weight:     : bold;
+  -moz-appearance  : textfield;
+}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} Sudoku {% endblock %}
+
+{% block content %}
+
+    <h1>Sudoku Game</h1>
+
+    <div class="game-container" >
+      <div class="grid-container" >
+          {% for i in range(9) %}
+            <div class="grid-row" >
+              {% for j in range(9) %}
+                <div class="grid-cell" >
+                  <input type="text" maxlength="1" >
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+
+      </div>
+    </div>
+
+{% endblock %}
