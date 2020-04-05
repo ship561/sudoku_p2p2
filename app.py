@@ -26,8 +26,10 @@ def transform_data(data):
     for val in data.values():
         if val == '':
             output += '.'
-        elif int(val) in range(1, 10):
+        elif val.isdigit() and int(val) in range(1, 10):
             output += val
+        else:
+            output += '.'
     output = list(output)
     result = np.reshape(output,(9, 9))
     return result
