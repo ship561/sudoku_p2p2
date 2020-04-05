@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, flash, session
+from flask import Flask, render_template, url_for, request, redirect, flash
 import numpy as np
 
 app = Flask(__name__)
@@ -109,5 +109,6 @@ def isValidSudoku(board):
         return len(res) == len(set(res))
 
     return is_valid_row(board) and is_valid_column(board) and is_valid_square(board)
+
 if __name__ == "__main__":
     app.run(debug=True)
