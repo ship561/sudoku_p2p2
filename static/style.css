@@ -1,5 +1,5 @@
 
-body {background-color: powderblue;}
+body {background-color: #FFCCCC;}
 
 h1 {
   position    : relative;
@@ -12,6 +12,8 @@ h1 {
   font-size   : 40px;
   font-weight : bold;
   text-align  : center;
+
+  color       : #FF9999
 }
 
 .container {
@@ -30,7 +32,7 @@ h1 {
   padding       : 15px;
 
   cursor        : default;
-  background    : #808080;
+  background    : #996699;
   border-radius : 6px;
 }
 
