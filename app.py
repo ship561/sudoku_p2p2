@@ -13,20 +13,12 @@ def sudoku():
 def sudoku_solve():
     data = request.form
     board = transform_data(data)
-    solved_board = solveSudoku(board)
-
-    if valid(solved_board):
+    if isValidSudoku(board):
+        solved_board = solveSudoku(board)
         return render_template('sudoku_solve.html', solved_board=solved_board)
     else:
-        flash('Invalid Sudoku')
+        # flash('Invalid Sudoku')
         return redirect(url_for('sudoku'))
-
-def valid(board):
-    for i in range(len(board)):
-        for j in range(len(board)):
-            if board[i][j] == '.':
-                return False
-    return True
 
 def transform_data(data):
     output = ''
@@ -87,5 +79,32 @@ def solveSudoku(board):
     solve(board)
     return board
 
+def isValidSudoku(board):
+    def is_valid_row(board):
+        for row in board:
+            if not is_valid(row):
+                return False
+        return True
+
+    def is_valid_column(board):
+        for col in zip(*board):
+            if not is_valid(col):
+                return False
+        return True
+
+    def is_valid_square(board):
+        for i in (0,3,6):
+            for j in (0,3,6):
+                square = [board[x][y] for x in range(i,i+3)
+                                        for y in range(j,j+3)]
+                if not is_valid(square):
+                    return False
+        return True
+
+    def is_valid(value):
+        res = [i for i in value if i != '.']
+        return len(res) == len(set(res))
+
+    return is_valid_row(board) and is_valid_column(board) and is_valid_square(board)
 if __name__ == "__main__":
     app.run(debug=True)
