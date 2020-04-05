@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash, ses
 import numpy as np
 
 app = Flask(__name__)
+app.secret_key = "dont tell"
 
 @app.route("/")
 @app.route("/sudoku")
@@ -17,7 +18,7 @@ def sudoku_solve():
         solved_board = solveSudoku(board)
         return render_template('sudoku_solve.html', solved_board=solved_board)
     else:
-        # flash('Invalid Sudoku')
+        flash('Invalid Sudoku')
         return redirect(url_for('sudoku'))
 
 def transform_data(data):

@@ -11,6 +11,16 @@
   <button style="color:#003366;" type="button" class="btn btn-outline-light" id="bla">Blue</button>&nbsp
   <button style="color:#C0B283;" type="button" class="btn btn-outline-light" id="gld">Gold</button>
 
+<div class="alert alert-danger alert-dismissible">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for message in messages %}
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{ message[1] }}</strong>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+</div>
 
   <div class="game-container" >
     <div class="grid-container" >
