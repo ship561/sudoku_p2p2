@@ -22,6 +22,14 @@ h1 {
   width    : 530px;
   margin   : 0 auto;
 }
+
+.fadein-container {
+  animation : fadein 1s;
+  -moz-animation : fadein 1s;
+  -webkit-animation : fadein 1s;
+  -o-animation : fadein 1s;
+}
+
 .game-container {
   position      : relative;
   box-sizing    : border-box;

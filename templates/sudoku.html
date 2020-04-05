@@ -11,20 +11,23 @@
   <button style="color:#003366;" type="button" class="btn btn-outline-light" id="bla">Blue</button>&nbsp
   <button style="color:#C0B283;" type="button" class="btn btn-outline-light" id="gld">Gold</button>
 
-  <script src="{{ url_for('static', filename='button_color.js') }}"></script>
 
   <div class="game-container" >
     <div class="grid-container" >
+      <form action="{{ url_for('sudoku_solve') }}" method="post" name="sudoku-input">
         {% for i in range(9) %}
           <div class="grid-row" >
             {% for j in range(9) %}
               <div class="grid-cell" >
-                <input type="text" maxlength="1" >
+                <input type="text" maxlength="1" name='cell-input[{{ j+i*9 }}]' class="def-txt-input">
               </div>
             {% endfor %}
           </div>
         {% endfor %}
-
+        <br>
+        <button id="clear-btn" type="button" class="btn btn-primary">Clear</button>&nbsp
+        <input type="submit" value="Solve" class="btn btn-primary"><br>
+      </form>
     </div>
   </div>
 
