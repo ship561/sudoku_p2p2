@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 import numpy as np
-
+from copy import deepcopy
 app = Flask(__name__)
 app.secret_key = "dont tell"
 
@@ -14,9 +14,10 @@ def sudoku():
 def sudoku_solve():
     data = request.form
     board = transform_data(data)
+    original_board = deepcopy(board)
     if isValidSudoku(board):
         solved_board = solveSudoku(board)
-        return render_template('sudoku_solve.html', solved_board=solved_board)
+        return render_template('sudoku_solve.html', solved_board=solved_board, original_board=original_board)
     else:
         flash('Invalid Sudoku')
         return redirect(url_for('sudoku'))

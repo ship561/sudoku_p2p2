@@ -5,13 +5,20 @@
 {% block heading %}  <h1>SUDOKU SOLVED</h1> {% endblock %}
 
 {% block content %}
+
+
     <div class="game-container">
       <div class="grid-container">
           {% for i in range(9) %}
             <div class="grid-row">
               {% for j in range(9) %}
                 <div class="grid-cell">
-                  <input type="number" maxlength="1" name='cell-input' value="{{ solved_board[i][j] }}" readonly>
+                    {% if original_board[i][j] == '.'%}
+                        <input align="middle" type="text" maxlength="1" name='cell-input' value="{{ solved_board[i][j] }}" readonly>
+                    {% else %}
+                        <input style="color:#800000;" align="middle" type="text" maxlength="1" name='cell-input' value="{{ original_board[i][j] }}" readonly>
+                    {% endif %}
+
                 </div>
               {% endfor %}
             </div>
